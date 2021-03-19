@@ -12,9 +12,11 @@ package com.mycompany.locadora.model;
 public class Cliente {
 
     private String nome;
+    private int matricula;
 
-    Cliente(String nome) {
+    public Cliente(String nome, int matricula) {
         this.nome = nome;
+        this.matricula = matricula;
     }
 
     /**
@@ -31,4 +33,17 @@ public class Cliente {
         this.nome = nome;
     }
 
+    /**
+     * @return the matricula
+     */
+    public int getMatricula() {
+        return matricula;
+    }
+
+    /**
+     * @param matricula the matricula to set
+     */
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
 }

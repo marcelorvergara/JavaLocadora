@@ -6,6 +6,7 @@
 package com.mycompany.locadora.model;
 
 import java.util.Scanner;
+import repositorio.Clientes;
 
 /**
  *
@@ -14,19 +15,31 @@ import java.util.Scanner;
 public class Menu {
 
     public static void main(String[] args) {
-        try {
-            String opc = mostraMenu();
-            //alugar
-            if ("1".equals(opc)) {
-                NovaLocacao nl = new NovaLocacao();
-                //devolver
-            } else if ("2".equals(opc)) {
-                System.out.println("Devolver Filme");
-            } else if ("3".equals(opc)) {
-                System.out.println("Cadastrar Filme");
+        while (true) {
+            try {
+                //entrar com o cliente
+                Clientes cli = new Clientes();
+                cli.listaClientes();
+                System.out.println("Entre com a matrícula do cliente: ");
+                Scanner scn = new Scanner(System.in);
+                int matCli = Integer.parseInt(scn.nextLine());
+
+                String opc = mostraMenu();
+                //alugar
+                if ("1".equals(opc)) {
+                    NovaLocacao nl = new NovaLocacao(matCli);
+                    //devolver
+                } else if ("2".equals(opc)) {
+                    System.out.println("Qual filme gostaria de devolver?\n");
+                    Devolucao dvlc = new Devolucao(matCli);
+                } else if ("3".equals(opc)) {
+                    System.out.println("Cadastrar Filme");
+                } else if ("4".equals(opc)) {
+                    System.exit(0);
+                }
+            } catch (Exception e) {
+                System.out.println("Erro" + e.getMessage());
             }
-        } catch (Exception e) {
-            System.out.println("Erro" + e.getMessage());
         }
 
     }
@@ -37,6 +50,7 @@ public class Menu {
         System.out.println("1 - Alugar filme(s)");
         System.out.println("2 - Devolver filme(s)");
         System.out.println("3 - Cadastrar fime(s)");
+        System.out.println("4 - Sair");
 
         String opcao = "";
 

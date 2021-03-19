@@ -5,6 +5,7 @@
  */
 package com.mycompany.locadora.model;
 
+import repositorio.Clientes;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,18 +16,18 @@ import java.util.List;
 public class Locacao {
 
     private List<Filme> filmes;
-    private Cliente cliente;
+    private Clientes cliente;
     private LocalDateTime data;
     private Devolucao devolucao;
 
-    public Locacao(List<Filme> filmes, Cliente cliente, LocalDateTime data, Devolucao devolucao) {
+    public Locacao(List<Filme> filmes, Clientes cliente, LocalDateTime data, Devolucao devolucao) {
         this.filmes = filmes;
         this.cliente = cliente;
         this.data = data;
         this.devolucao = devolucao;
     }
 
-    public Locacao(List<Filme> filmes, Cliente cliente) {
+    public Locacao(List<Filme> filmes, Clientes cliente) {
         this.filmes = filmes;
         this.cliente = cliente;
     }
@@ -48,14 +49,14 @@ public class Locacao {
     /**
      * @return the cliente
      */
-    public Cliente getCliente() {
+    public Clientes getCliente() {
         return cliente;
     }
 
     /**
      * @param cliente the cliente to set
      */
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Clientes cliente) {
         this.cliente = cliente;
     }
 

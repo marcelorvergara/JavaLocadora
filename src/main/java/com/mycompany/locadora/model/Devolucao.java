@@ -7,6 +7,10 @@ package com.mycompany.locadora.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Scanner;
 
 /**
  *
@@ -26,6 +30,23 @@ public class Devolucao {
 
     public Devolucao(LocalDateTime dataPrevista) {
         this.dataPrevista = dataPrevista;
+    }
+
+    Devolucao() {
+
+    }
+
+    Devolucao(int matCli) {
+        for (Entry entry : Alugados.getListaAlugados().entrySet()) {
+            Integer key = (Integer) entry.getKey();
+            List<Filme> lstFlm = (List<Filme>) entry.getValue();
+            System.out.println("Matrícula: " + key);
+            int size = lstFlm.size();
+            System.out.println("Filmes: " + size);
+        }
+
+        Scanner scn = new Scanner(System.in);
+        String cod = scn.nextLine();
     }
 
     /**

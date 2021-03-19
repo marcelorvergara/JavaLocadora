@@ -27,8 +27,11 @@ public class NovaLocacao {
     BigDecimal tot = new BigDecimal(0);
     ListarTodosFilmes ltf = new ListarTodosFilmes();
 
-    //listar
     public NovaLocacao() {
+
+    }
+
+    NovaLocacao(int codCli) {
         System.out.println("Quantos filmes da lista abaixo serão alugados?\n");
         try {
             //listando os filmes
@@ -47,6 +50,10 @@ public class NovaLocacao {
             //imprimir recibo
             imprimirRecibo();
 
+            //atualizar lista de filmes alugados
+            Alugados.setListaAlugados(alugados, codCli);
+            System.out.println("\nTotal de alugados: " + Alugados.getListaAlugados().size() + "\n\n\n");
+            //fim
         } catch (NumberFormatException e) {
             System.out.println("Tem erro no bagulho");
             System.out.println(e.getMessage());
